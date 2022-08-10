@@ -1,5 +1,5 @@
 from pathlib import Path
-
+from decouple import  config # دا علشان اخفي ال رقم الحماية والتصحيح (SECRET_KEY, DEBUG)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -8,10 +8,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-m*r+3)k7lb@wepf!c48hv%1q)kg0j4yb9to&i1_*-&ewta4hjg'
-
+# SECRET_KEY = 'django-insecure-m*r+3)k7lb@wepf!c48hv%1q)kg0j4yb9to&i1_*-&ewta4hjg'
+SECRET_KEY= config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -26,20 +27,28 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'apimeals.apps.ApimealsConfig',
     'rest_framework.authtoken',
-    'corsheaders',
+    # 'corsheaders',
+    'apimeals.apps.ApimealsConfig',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # 'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# CORS_ALLOWED_ORIGINS = [
+#         "https://example.com",
+#         "https://sub.example.com",
+#         "http://localhost:8080",
+#         "http://127.0.0.1:9000"
+#     ]
 
 ROOT_URLCONF = 'meals_rater.urls'
 

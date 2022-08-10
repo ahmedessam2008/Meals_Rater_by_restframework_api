@@ -1,0 +1,2 @@
+release: python manage.py migrate
+web: gunicorn meals_rater.wsgi --log-file=-
