@@ -1,4 +1,6 @@
 from pathlib import Path
+import os
+import django_heroku
 from decouple import  config # دا علشان اخفي ال رقم الحماية والتصحيح (SECRET_KEY, DEBUG)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,8 +16,9 @@ SECRET_KEY= config('SECRET_KEY')
 # DEBUG = True
 DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
+ALLOWED_HOSTS = ['meals-rater.herokuapp.com']
 
 # Application definition
 
@@ -77,13 +80,24 @@ WSGI_APPLICATION = 'meals_rater.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mealsdb',
-        'USER': 'postgres',
-        'PASSWORD': 'mazyazahmed',
-        'HOST': 'localhost',
+        'NAME': 'ddnun93u0kbk4t',
+        'USER': 'taaruejrildoqa',
+        'PASSWORD': '3a90e096469237b19b0ff3f3bc7a6e7a652807cc5070afd4c8ab722dca155b1f',
+        'HOST': 'ec2-52-30-159-47.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'mealsdb',
+#         'USER': 'postgres',
+#         'PASSWORD': 'mazyazahmed',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
@@ -119,8 +133,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_URL = 'static/'
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
