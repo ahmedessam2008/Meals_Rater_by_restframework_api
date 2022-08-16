@@ -80,13 +80,24 @@ WSGI_APPLICATION = 'meals_rater.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mealsdb',
-        'USER': 'postgres',
-        'PASSWORD': 'mazyazahmed',
-        'HOST': 'localhost',
+        'NAME': 'd9t2aev0pmibs7',
+        'USER': 'psnbiknlumhwle',
+        'PASSWORD': 'a8a09498aa20c2afbd95bb69601a142886bb29b28a4fd0bc820ff75cf99fd7a2',
+        'HOST': 'ec2-3-224-184-9.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'mealsdb',
+#         'USER': 'postgres',
+#         'PASSWORD': 'mazyazahmed',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
